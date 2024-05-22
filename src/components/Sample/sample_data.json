@@ -1,0 +1,109 @@
+{
+  "graph_Data": [
+    { "name": "some data", "value": 90 },
+    { "name": "data2", "value": 12 },
+    { "name": "data3", "value": 34 },
+    { "name": "data4", "value": 53 },
+    { "name": "data5", "value": 58 }
+  ],
+
+  "logo": "https://imgs.search.brave.com/uEcZS66qIle4xz0OK_vDNUEXnU0zs7_VHKyd7kFAE8s/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9waG90/b3MuYW5nZWwuY28v/c3RhcnR1cHMvaS81/NzYwNzU1LTE4MWVl/MjIxNDliZmUyNWZl/MDIxNGEwYzg5MmNi/YWI3LW1lZGl1bV9q/cGcuanBnP2J1c3Rl/cj0xNTY2NDQzOTU2",
+  "companyName": "Bhumio",
+  "companyDetails": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+
+  "products": [
+    {
+      "name": "Product A",
+      "description": "This is a description of Product A.",
+      "price": 29.99,
+      "category": "Electronics",
+      "manufacturer": "Brand A",
+      "rating": 4.5
+    },
+    {
+      "name": "Product B",
+      "description": "This is a description of Product B.",
+      "price": 49.99,
+      "category": "Clothing",
+      "brand": "Brand B",
+      "size": "Large"
+    },
+    {
+      "name": "Product C",
+      "description": "This is a description of Product C.",
+      "price": 9.99,
+      "category": "Home & Garden",
+      "brand": "Brand C",
+      "weight": "2 lbs"
+    }
+  ],
+  "regions": [
+    {
+      "name": "Region 1",
+      "description": "This is a description of Region 1.",
+      "country": "Country A",
+      "population": 1000000,
+      "capital": "Capital City A"
+    },
+    {
+      "name": "Region 2",
+      "description": "This is a description of Region 2.",
+      "country": "Country B",
+      "population": 500000,
+      "capital": "Capital City B"
+    },
+    {
+      "name": "Region 3",
+      "description": "This is a description of Region 3.",
+      "country": "Country C",
+      "population": 750000,
+      "capital": "Capital City C"
+    }
+  ],
+  "branches": [
+    {
+      "name": "Branch X",
+      "description": "This is a description of Branch X.",
+      "location": "Location X",
+      "manager": "Manager X",
+      "employees": 10
+    },
+    {
+      "name": "Branch Y",
+      "description": "This is a description of Branch Y.",
+      "location": "Location Y",
+      "manager": "Manager Y",
+      "employees": 8
+    },
+    {
+      "name": "Branch Z",
+      "description": "This is a description of Branch Z.",
+      "location": "Location Z",
+      "manager": "Manager Z",
+      "employees": 15
+    }
+  ],
+  "sellers": [
+    {
+      "name": "Seller A",
+      "description": "This is a description of Seller A.",
+      "specialty": "Electronics",
+      "location": "Location A",
+      "rating": 4.7
+    },
+    {
+      "name": "Seller B",
+      "description": "This is a description of Seller B.",
+      "specialty": "Clothing",
+      "location": "Location B",
+      "rating": 4.3
+    },
+    {
+      "name": "Seller C",
+      "description": "This is a description of Seller C.",
+      "specialty": "Home & Garden",
+      "location": "Location C",
+      "rating": 4.5
+    }
+  ]
+}
