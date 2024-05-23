@@ -16,7 +16,7 @@ Follow these steps to get a development environment running.
 1. **Clone the repository**
 
     ```bash
-    [git clone https://github.com/your-username/your-repo-name.git](https://github.com/AnilXnmDrz/comp-management.git)
+    git clone https://github.com/AnilXnmDrz/comp-management.git
     ```
 
 2. **Navigate into the directory**
