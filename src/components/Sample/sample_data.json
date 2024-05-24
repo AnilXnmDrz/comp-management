@@ -125,6 +125,26 @@
       ],
       "apiMethod": "post",
       "endpoint": "/api/regions"
+    },
+    "editEntry": {
+      "form": [
+        {
+          "displayname": "id",
+          "type": "number",
+          "path": "id"
+        },
+        {
+          "displayname": "name",
+          "type": "text",
+          "path": "name"
+        }
+      ],
+      "apiMethod": "put",
+      "endpoint": "/api/regions/:id"
+    },
+    "deleteEntry": {
+      "apiMethod": "delete",
+      "endpoint": "api/regions/:id"
     }
   },
 
@@ -157,6 +177,41 @@
       ],
       "apiMethod": "post",
       "endpoint": "/api/branches"
+    },
+    "editEntry": {
+      "form": [
+        {
+          "displayname": "id",
+          "type": "number",
+          "path": "id"
+        },
+        {
+          "displayname": "code",
+          "type": "text",
+          "path": "code"
+        },
+        {
+          "displayname": "name",
+          "type": "text",
+          "path": "name"
+        },
+        {
+          "displayname": "type",
+          "type": "text",
+          "path": "type"
+        },
+        {
+          "displayname": "address",
+          "type": "text",
+          "path": "address"
+        }
+      ],
+      "apiMethod": "put",
+      "endpoint": "/api/branches/:id"
+    },
+    "deleteEntry": {
+      "apiMethod": "delete",
+      "endpoint": "api/branches/:id"
     }
   },
   "Suppliers": {
@@ -184,6 +239,31 @@
       ],
       "apiMethod": "post",
       "endpoint": "/api/suppliers"
+    },
+    "editEntry": {
+      "form": [
+        {
+          "displayname": "id",
+          "type": "number",
+          "path": "id"
+        },
+        {
+          "displayname": "name",
+          "type": "text",
+          "path": "name"
+        },
+        {
+          "displayname": "address",
+          "type": "text",
+          "path": "address"
+        }
+      ],
+      "apiMethod": "put",
+      "endpoint": "/api/suppliers/:id"
+    },
+    "deleteEntry": {
+      "apiMethod": "delete",
+      "endpoint": "api/suppliers/:id"
     }
   }
 }

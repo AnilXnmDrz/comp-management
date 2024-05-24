@@ -24,13 +24,13 @@ const CompanyProfile = () => {
           <Grid item xs={10} md={3}>
             <ProfileCard resource={data.regions} sector={"Region"} />
           </Grid>
-          {/* <Grid item xs={10} md={3}>
+          <Grid item xs={10} md={3}>
             <ProfileCard resource={data.branches} sector={"Branch"} />
           </Grid>
           <Grid item xs={10} md={3}>
             <ProfileCard resource={data.Suppliers} sector={"Seller"} />
           </Grid>
-          <Grid item xs={10} md={3}>
+          {/* <Grid item xs={10} md={3}>
             <ProfileCard resource={data.Suppliers} sector={"Seller"} />
           </Grid>
           <Grid item xs={10} md={3}>
