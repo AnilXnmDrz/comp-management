@@ -5,9 +5,10 @@ import ProfileCard from "./ProfileCard";
 import { Grid } from "@mui/material";
 import Banner from "./Banner";
 import data from "../Sample/sample_data.json";
+import UserTable from "./UserTable";
 
 const CompanyProfile = () => {
-  let userInfo = JSON.parse(localStorage.getItem('userInfo'))
+  let userInfo = JSON.parse(localStorage.getItem("userInfo"));
 
   return (
     <>
@@ -30,14 +31,10 @@ const CompanyProfile = () => {
           <Grid item xs={10} md={3}>
             <ProfileCard resource={data.Suppliers} sector={"Seller"} />
           </Grid>
-          {/* <Grid item xs={10} md={3}>
-            <ProfileCard resource={data.Suppliers} sector={"Seller"} />
-          </Grid>
-          <Grid item xs={10} md={3}>
-            <ProfileCard resource={data.Suppliers} sector={"Seller"} />
-          </Grid> */}
-          
         </Grid>
+      </div>
+      <div style={{ marginTop: "20px" , padding: '0px 4px 4px 4px'}}>
+        <UserTable />
       </div>
     </>
   );

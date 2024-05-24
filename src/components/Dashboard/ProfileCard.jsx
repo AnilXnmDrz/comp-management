@@ -1,4 +1,3 @@
-// src/components/ProfileCard.js
 import React, { useEffect, useState } from "react";
 import http from "../service/apiClient";
 import {
@@ -39,6 +38,7 @@ const ProfileCard = ({ resource }) => {
   const [editDialogOpen, setEditDialogOpen] = useState(false);
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [currentItem, setCurrentItem] = useState(null);
+  const [disabled, setDisabled] = useState(false); // New state variable
 
   const { sector, endpoint, properties, newEntry, editEntry, deleteEntry } =
     resource;
@@ -52,7 +52,11 @@ const ProfileCard = ({ resource }) => {
       const response = await http.request(endpoint);
       setData(response.data.data);
     } catch (error) {
-      setError(error);
+      // setError(error);
+      if (error.response && error.response.status === 403) {
+        // If the error status is 403, set the component to be disabled
+        setDisabled(true);
+      }
     } finally {
       setLoading(false);
     }
@@ -113,7 +117,7 @@ const ProfileCard = ({ resource }) => {
         }}
       >
         <Typography variant="h6" color="error">
-          Error: {error.message}
+          {/* Error: {error.message} */}
         </Typography>
       </Box>
     );
@@ -122,7 +126,13 @@ const ProfileCard = ({ resource }) => {
   return (
     <TableContainer
       component={Paper}
-      sx={{ maxWidth: 400, margin: "auto", backgroundColor: "#ddd" }}
+      sx={{
+        maxWidth: 400,
+        margin: "auto",
+        backgroundColor: "#ddd",
+        pointerEvents: disabled ? "none" : "initial", // Disable pointer events if disabled is true
+        opacity: disabled ? 0.5 : 1, // Reduce opacity if disabled is true
+      }}
     >
       <Table aria-label="simple table">
         <TableHead>

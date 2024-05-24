@@ -131,7 +131,8 @@
         {
           "displayname": "id",
           "type": "number",
-          "path": "id"
+          "path": "id",
+          "disable_edit": true
         },
         {
           "displayname": "name",
@@ -183,7 +184,8 @@
         {
           "displayname": "id",
           "type": "number",
-          "path": "id"
+          "path": "id",
+          "disable_edit": true
         },
         {
           "displayname": "code",
@@ -215,7 +217,7 @@
     }
   },
   "Suppliers": {
-    "sector": "SellersSupplier",
+    "sector": "Supplier",
     "endpoint": "/api/suppliers",
     "properties": ["code", "name", "address"],
     "newEntry": {
@@ -245,7 +247,8 @@
         {
           "displayname": "id",
           "type": "number",
-          "path": "id"
+          "path": "id",
+          "disable_edit": true
         },
         {
           "displayname": "name",
