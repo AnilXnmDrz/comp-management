@@ -1,12 +1,12 @@
 // src/components/Login/Login.jsx
 import React, { useState } from "react";
 import http from "../service/apiClient";
-import ErrorHandler from "../service/ErrorHandler";
+import { useSnackbar } from "../service/SnackbarContext";
 
 function Login() {
   const [username, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
+  const {showSnackbar} = useSnackbar()
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -32,11 +32,8 @@ function Login() {
 
       window.location.href = "/company-profile";
     } catch (error) {
-      setError("Incorrect username or password");
+      showSnackbar("Incorrect username or password", "error");
 
-      setTimeout(() => {
-        setError(null);
-      }, 3000);
     }
   };
 
@@ -94,7 +91,6 @@ function Login() {
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="bg-white p-6 rounded shadow-md w-full max-w-md">
         <h2 className="text-2xl mb-6 text-center">Login</h2>
-        {error && <ErrorHandler error={error} />}
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block mb-1 text-gray-700">Username:</label>

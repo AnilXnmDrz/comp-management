@@ -23,41 +23,167 @@
       "brand -> name"
     ],
     "newEntry": {
-      "form": {
-        "code": "text",
-        "name": "text",
-        "price": "number",
-        "brand": "text",
-        "product_category": "text",
-        "minimum_stock": "text"
-      },
+      "form": [
+        {
+          "displayname": "code",
+          "type": "text",
+          "path": "code"
+        },
+        {
+          "displayname": "name",
+          "type": "text",
+          "path": "name"
+        },
+        {
+          "displayname": "price",
+          "type": "number",
+          "path": "price"
+        },
+        {
+          "displayname": "brand",
+          "type": "text",
+          "path": "branch -> id"
+        },
+        {
+          "displayname": "product_category",
+          "type": "text",
+          "path": "product_category -> name"
+        },
+        {
+          "displayname": "minimum_stock",
+          "type": "text",
+          "path": "minimum_stock"
+        }
+      ],
       "apiMethod": "post",
       "endpoint": "api/products"
+    },
+    "editEntry": {
+      "form": [
+        {
+          "displayname": "id",
+          "type": "number",
+          "path": "id",
+          "disable_edit": true
+        },
+        {
+          "displayname": "code",
+          "type": "text",
+          "path": "code"
+        },
+        {
+          "displayname": "name",
+          "type": "text",
+          "path": "name"
+        },
+        {
+          "displayname": "price",
+          "type": "number",
+          "path": "price"
+        },
+        {
+          "displayname": "brand",
+          "type": "text",
+          "path": "brand -> id"
+        },
+        {
+          "displayname": "product_category",
+          "type": "text",
+          "path": "product_category -> id"
+        },
+        {
+          "displayname": "minimum_stock",
+          "type": "text",
+          "path": "minimum_stock"
+        }
+      ],
+      "apiMethod": "put",
+      "endpoint": "api/products/:id"
+    },
+    "deleteEntry": {
+      "apiMethod": "delete",
+      "endpoint": "api/products/:id"
     }
   },
-    
-    "regions": {
-      "sector": "Region",
-      "endpoint": "/api/regions",
-      "properties": ["code", "name"],
-      "newEntry":{
-        "form": {
-          "code": "text",
-          "name": "text"
+
+  "regions": {
+    "sector": "Region",
+    "endpoint": "/api/regions",
+    "properties": ["code", "name"],
+    "newEntry": {
+      "form": [
+        {
+          "displayname": "code",
+          "type": "text",
+          "path": "code"
         },
-        "apiMethod": "post",
-        "endpoint": "api/products"
-      }
-      },
-    
+        {
+          "displayname": "name",
+          "type": "text",
+          "path": "code"
+        }
+      ],
+      "apiMethod": "post",
+      "endpoint": "/api/regions"
+    }
+  },
+
   "branches": {
     "sector": "Branch",
     "endpoint": "/api/branches?=",
-    "properties": ["code", "name", "address"]
+    "properties": ["code", "name", "address"],
+    "newEntry": {
+      "form": [
+        {
+          "displayname": "code",
+          "type": "text",
+          "path": "code"
+        },
+        {
+          "displayname": "name",
+          "type": "text bagus",
+          "path": "name"
+        },
+        {
+          "displayname": "type",
+          "type": "text",
+          "path": "type"
+        },
+        {
+          "displayname": "address",
+          "type": "text",
+          "path": "address"
+        }
+      ],
+      "apiMethod": "post",
+      "endpoint": "/api/branches"
+    }
   },
   "Suppliers": {
     "sector": "SellersSupplier",
     "endpoint": "/api/suppliers",
-    "properties": ["code", "name", "address"]
+    "properties": ["code", "name", "address"],
+    "newEntry": {
+      "form": [
+        {
+          "displayname": "code",
+          "type": "text",
+          "path": "code"
+        },
+        {
+          "displayname": "name",
+          "type": "text bagus",
+          "path": "name"
+        },
+
+        {
+          "displayname": "address",
+          "type": "text",
+          "path": "address"
+        }
+      ],
+      "apiMethod": "post",
+      "endpoint": "/api/suppliers"
+    }
   }
 }

@@ -1,5 +1,4 @@
-/* eslint-disable react/prop-types */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Dialog,
   DialogActions,
@@ -9,18 +8,51 @@ import {
   Button,
 } from "@mui/material";
 import http from "../service/apiClient";
+import { getNestedValue } from "../service/KeyValueDisplay";
+import { useSnackbar } from "./SnackbarContext";
 
-const FormDialog = ({ open, onClose, formData, apiMethod, endpoint }) => {
+const FormDialog = ({
+  open,
+  onClose,
+  formData,
+  apiMethod,
+  endpoint,
+  initialData,
+}) => {
+  const { showSnackbar } = useSnackbar();
   const [formState, setFormState] = useState(
-    Object.keys(formData).reduce((acc, key) => {
-      acc[key] = "";
+    formData.reduce((acc, field) => {
+      acc[field.displayname] = "";
       return acc;
     }, {})
   );
 
+  useEffect(() => {
+    if (initialData) {
+      const populatedFormState = formData.reduce((acc, field) => {
+        const value =
+          field.path === field.displayname
+            ? initialData[field.displayname]
+            : getNestedValue(initialData, field.path);
+        acc[field.displayname] =
+          value !== undefined && value !== null
+            ? field.type === "number"
+              ? parseFloat(value)
+              : String(value)
+            : "";
+        return acc;
+      }, {});
+
+      setFormState(populatedFormState);
+    }
+  }, [initialData, formData]);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    const newValue = formData[name] === "number" ? parseFloat(value) : value;
+    const newValue =
+      formData.find((field) => field.displayname === name).type === "number"
+        ? parseFloat(value)
+        : value;
     setFormState({
       ...formState,
       [name]: newValue,
@@ -31,19 +63,25 @@ const FormDialog = ({ open, onClose, formData, apiMethod, endpoint }) => {
     try {
       await saveData();
       onClose(true);
+      showSnackbar('Entry successfull', "success");
+
     } catch (error) {
-      console.error("Error submitting form:", error);
       onClose(false);
+      showSnackbar(error, "error");
     }
   };
 
   const saveData = async () => {
-    // formState.price = 101;
     let data = JSON.stringify(formState);
+    let url = endpoint;
+
+    if (initialData && endpoint.includes(":id")) {
+      url = endpoint.replace(":id", initialData.id);
+    }
 
     let config = {
       method: apiMethod,
-      url: endpoint,
+      url: url,
       data: data,
     };
     return new Promise((resolve, reject) => {
@@ -55,25 +93,30 @@ const FormDialog = ({ open, onClose, formData, apiMethod, endpoint }) => {
         })
         .catch((error) => {
           console.log(error);
-          reject(false);
+          reject(error.message);
         });
     });
   };
 
   return (
     <Dialog open={open} onClose={() => onClose(false)}>
-      <DialogTitle>New Entry</DialogTitle>
+      <DialogTitle>{initialData ? "Edit Entry" : "New Entry"}</DialogTitle>
       <DialogContent>
-        {Object.keys(formData).map((key) => (
+        {formData.map((field) => (
           <TextField
-            key={key}
+            key={field.displayname}
             margin="dense"
-            name={key}
-            label={key}
-            type={formData[key]}
+            name={field.displayname}
+            label={field.displayname}
+            type={field.type}
             fullWidth
-            value={formState[key]}
+            value={formState[field.displayname]}
             onChange={handleInputChange}
+            disabled={
+              Object.prototype.hasOwnProperty.call(field, "disable_edit")
+                ? true
+                : false
+            }
           />
         ))}
       </DialogContent>
