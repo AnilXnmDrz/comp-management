@@ -11,14 +11,13 @@ const Banner = ({ logo, companyName, companyDetails }) => {
     <Box
       sx={{
         display: "flex",
-        padding: 4,
+        padding: 2,
         border: "1px solid #ccc",
         borderRadius: "16px",
         backgroundColor: "#f9f9f9",
         justifyContent: "space-between",
         width: "100%",
-        maxWidth: "100%",
-        margin: "20px 20px 30px 40px",
+        // margin: "20px 20px 30px 40px",
       }}
     >
       <Box sx={{ display: "flex", alignItems: "flex-start", flex: 1 }}>
@@ -46,9 +45,6 @@ const Banner = ({ logo, companyName, companyDetails }) => {
       <Box
         sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
       >
-        {/* <Typography variant="body2" sx={{ marginBottom: 1 }}>
-          sales
-        </Typography> */}
         <DonutChart data={data.graph_Data} width={500} height={250} />
       </Box>
     </Box>

@@ -7,32 +7,39 @@ import Banner from "./Banner";
 import data from "../Sample/sample_data.json";
 
 const CompanyProfile = () => {
-  
+  let userInfo = JSON.parse(localStorage.getItem('userInfo'))
 
   return (
-    <Grid container spacing={4}>
-      {/* <Grid item xs={1000} md={8}> */}
+    <>
       <Banner
         logo={data.logo}
-        companyName={data.companyName}
+        companyName={userInfo.company.name}
         companyDetails={data.companyDetails}
       />
-      {/* </Grid> */}
-
-      <Grid item xs={12} md={4}>
-        <ProfileCard items={data.products} sector={"Product"} />
-      </Grid>
-      <Grid item xs={12} md={4}>
-        <ProfileCard items={data.regions} sector={"Region"} />
-      </Grid>
-      <Grid item xs={12} md={4}>
-        <ProfileCard items={data.branches} sector={"Branch"} />
-      </Grid>
-      <Grid item xs={12} md={4}>
-        <ProfileCard items={data.sellers} sector={"Seller"} />
-      </Grid>
-    
-    </Grid>
+      <div style={{ marginTop: "20px" }}>
+        <Grid container spacing={2}>
+          <Grid item xs={10} md={3}>
+            <ProfileCard resource={data.products} sector={"Product"} />
+          </Grid>
+          <Grid item xs={10} md={3}>
+            <ProfileCard resource={data.regions} sector={"Region"} />
+          </Grid>
+          {/* <Grid item xs={10} md={3}>
+            <ProfileCard resource={data.branches} sector={"Branch"} />
+          </Grid>
+          <Grid item xs={10} md={3}>
+            <ProfileCard resource={data.Suppliers} sector={"Seller"} />
+          </Grid>
+          <Grid item xs={10} md={3}>
+            <ProfileCard resource={data.Suppliers} sector={"Seller"} />
+          </Grid>
+          <Grid item xs={10} md={3}>
+            <ProfileCard resource={data.Suppliers} sector={"Seller"} />
+          </Grid> */}
+          
+        </Grid>
+      </div>
+    </>
   );
 };
 
