@@ -37,6 +37,7 @@ const AddUser = ({ open, onClose }) => {
     access: [], // Access list from checkboxes
   });
   const [searchTerm, setSearchTerm] = useState("");
+  const { showSnackbar } = useSnackbar();
 
   useEffect(() => {
     const fetchBranches = async () => {
@@ -118,8 +119,9 @@ const AddUser = ({ open, onClose }) => {
     try {
       await createUser();
       await grantRole_Access();
+      showSnackbar("new user added", "success");
     } catch (error) {
-        useSnackbar('Fail to create user', 'error')
+      showSnackbar("Fail to create user", "error");
     }
     onClose();
   };
@@ -154,13 +156,12 @@ const AddUser = ({ open, onClose }) => {
       url: "",
     };
     for (const permission of form.access) {
-        try {
-            config.url = `api/roles/2/access/${permission}`;
-            await http.request(config);
-            
-        } catch (error) {
-            continue
-        }
+      try {
+        config.url = `api/roles/${form.roles}/access/${permission}`;
+        await http.request(config);
+      } catch (error) {
+        continue;
+      }
     }
   };
 

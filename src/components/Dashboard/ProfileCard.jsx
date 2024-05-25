@@ -132,8 +132,8 @@ const ProfileCard = ({ resource }) => {
         maxWidth: 400,
         margin: "auto",
         backgroundColor: "#ddd",
-        pointerEvents: disabled ? "none" : "initial", // Disable pointer events if disabled is true
-        opacity: disabled ? 0.5 : 1, // Reduce opacity if disabled is true
+        pointerEvents: disabled ? "none" : "initial", 
+        opacity: disabled ? 0.5 : 1, 
         maxHeight: 300
       }}
     >
