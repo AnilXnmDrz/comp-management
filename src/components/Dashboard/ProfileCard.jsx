@@ -125,13 +125,16 @@ const ProfileCard = ({ resource }) => {
 
   return (
     <TableContainer
+    className="transparent-scrollbar"
       component={Paper}
       sx={{
+        height: 300,
         maxWidth: 400,
         margin: "auto",
         backgroundColor: "#ddd",
         pointerEvents: disabled ? "none" : "initial", // Disable pointer events if disabled is true
         opacity: disabled ? 0.5 : 1, // Reduce opacity if disabled is true
+        maxHeight: 300
       }}
     >
       <Table aria-label="simple table">

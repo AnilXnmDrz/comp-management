@@ -73,3 +73,27 @@ button:focus-visible {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.transparent-scrollbar::-webkit-scrollbar {
+  width: 12px;
+}
+
+.transparent-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1); 
+}
+
+.transparent-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.4); 
+  border-radius: 6px;
+}
+
+.transparent-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.5); 
+}
+
+/* For Firefox */
+.transparent-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.4) rgba(0, 0, 0, 0.1);
+}
