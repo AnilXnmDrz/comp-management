@@ -45,8 +45,4 @@ To execute Test cases, run
 npm test
 ```
 
-## Screenshot
-![image](https://github.com/AnilXnmDrz/comp-management/assets/61143364/ff087564-e35a-4207-a0e0-5ee7e06fb28b)
-![image](https://github.com/AnilXnmDrz/comp-management/assets/61143364/6a51f9de-3462-488a-8e1a-e665cf85f7b6)
-
 
